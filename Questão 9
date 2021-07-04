@@ -23,6 +23,7 @@ int main(){
     hexadecimal();
     conteudo();   
 }
-//Resposta:
-//1º código: imprime o conteúdo do vetor vet.
-//2º código: imprime o hexadecimal referente aos enderecos de memoria de cada número do vetor vet.
+
+Respostas:
+1º código: imprime o conteúdo do vetor vet.
+2º código: imprime o hexadecimal referente aos enderecos de memoria de cada número do vetor vet.
