@@ -1,0 +1,13 @@
+2. Seja o seguinte trecho de programa:
+
+int i=3, j=5;
+int *p, *q;
+p = &i;
+q = &j;
+
+Determine o valor das seguintes expressões:
+
+◦ p == &i; // Verdadeiro, pois anteriormente foi guardado no ponteiro p o endereço de i, logo a igualdade entre p e &i está correta.
+◦ *p - *q; // -2, pois *p = 3 e *q = 5, logo 3 - 5 = -2.
+◦ **&p; // 3, pois o intuito desse trecho é saber o conteúdo do ponteiro p. O mesmo foi atribuído para apontar para o endereço de i, secom isso o conteúdo dele é 3
+◦ 3 - *p/(*q) + 7; // 10, pois a divisão no meio desta operação resulta em 0, sobrando a soma entre 3 e 7.
