@@ -1,0 +1,15 @@
+11. Suponha que as seguintes declarações tenham sido realizadas:
+
+float aloha[10], coisas[10][5], *pf, value = 2.2;
+int i=3;
+
+Identifique quais dos seguintes comandos é válido ou inválido:
+
+a. aloha[2] = value; // Válido - A terceira posição do vetor recebe o valor de value, que é um float.
+b. scanf("%f", &aloha); // Inválido
+c. aloha = "value"; // Inválido
+d. printf("%f", aloha); // Inválido
+e. coisas[4][4] = aloha[3]; // Válido - A matriz coisas[10][5] está guardando na posição coisas[4][4] o valor de aloha[3], que também é um float.
+f. coisas[5] = aloha; // Inválido
+g. pf = value; // Válido - O ponteiro pf aponta para o local que está guardado o conteúdo de value.
+h. pf = aloha; // Válido - O ponteiro pf aponta para o endereço da primeira posição do vetor aloha[10].
