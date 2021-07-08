@@ -1,0 +1,40 @@
+14. Reimplemente o programa da questão anterior utilizando a função qsort() do C. Comente o seu
+código, explicando o que faz cada uma das linhas.
+
+#include <stdio.h>
+#include <stdlib.h>
+
+//função que verifica dois elementos;
+int ver(const void * a, const void * b) {
+   return ( *(int*)a - *(int*)b );
+}
+int main(void){
+	//Váriaveis;
+	int i, n;
+	float *p;
+
+	//Recebe a quantidade de valores que será alocado;
+	printf("Qnt de valores: ");
+	scanf("%d", &n);
+	
+	//alocação dinâmica de memória;	
+	p = (float*) malloc(n * sizeof(float));
+	
+	//Recebe os valores;
+	for (i = 0; i < n; i++){	
+		printf("Valor: ");
+		scanf("%f",&p[i]);
+	}	
+	//Função pra ordenar em ordem crescente;
+	qsort(p, n, sizeof(float), ver);
+	
+	//Imprime valores em ordem crescente
+	printf("\nValores em ordem crescente\n");
+	for (i = 0; i < n; i++){
+    	printf("\n%f ",p[i]);
+  	}
+	
+	//Esvazia o local na memória virtual utizado pelo malloc;
+	free(p);
+	return(0);	
+}
