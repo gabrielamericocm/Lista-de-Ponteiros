@@ -1,0 +1,22 @@
+12. O que é um ponteiro para uma função? Pesquise na Internet referências sobre o assunto e
+escreva um pequeno programa exemplificando o uso deste recurso.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+void soma(int a,int b){
+printf ("Valor = %d\n", a+b); 
+}
+
+
+int main(void){
+void (*p)(int,int) = &soma;
+int a=7,b=3;
+(*p)(a,b);
+return 0;
+}
+
+//respota: Um ponteiro para uma função serve para apontar para a função desejada, 
+//sendo assim, não se faz necessário referenciar ao nome da função naquela parte do código que deseja executá-la.
