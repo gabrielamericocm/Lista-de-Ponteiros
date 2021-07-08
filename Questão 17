@@ -1,0 +1,99 @@
+#include<stdio.h>
+#include<stdlib.h>
+
+void soma(float *vet1, float *vet2, float *vet3, int t){
+   for(int i = 0; i < t; i++){
+    *(vet3+i) = *(vet1+i) + *(vet2+i);
+   }
+}
+
+int main(void){
+
+int t;
+    printf("Digite o tamanho dos vetores: ");
+    scanf("%d", &t);
+
+int vet1[t], vet2[t], vet3[t];
+int i;
+
+   for(i = 0; i < t; i++){
+    printf("Digite o valor (%d) do primeiro vetor: ", i + 1);
+    scanf("%d", &vet1[i]); 
+   }
+    printf ("\n");
+
+   for(i = 0; i < t; i++){
+    printf("Digite o valor (%d) do segundo vetor: ", i + 1);
+    scanf("%d", &vet2[i]);
+   }
+
+	vet1[t] = malloc(t * sizeof(float*));
+	vet2[t] = malloc(t * sizeof(float*));
+	vet3[t] = malloc(t * sizeof(float*));
+
+
+soma(vet1[t], vet2[t], vet3[t], t);
+
+printf("\n");
+
+printf("A soma e': ");
+for(int i = 0; i < t; i++){
+    printf("%d ", *(vet3+i));
+}
+
+free(vet1);
+free(vet2);
+free(vet3);
+
+    return 0;
+}
+
+#include<stdio.h>
+#include<stdlib.h>
+
+void soma(float *vet1, float *vet2, float *vet3, int t){
+   for(int i = 0; i < t; i++){
+    *(vet3+i) = *(vet1+i) + *(vet2+i);
+   }
+}
+
+int main(void){
+
+int t;
+    printf("Digite o tamanho dos vetores: ");
+    scanf("%d", &t);
+
+int vet1[t], vet2[t], vet3[t];
+int i;
+
+   for(i = 0; i < t; i++){
+    printf("Digite o valor (%d) do primeiro vetor: ", i + 1);
+    scanf("%d", &vet1[i]); 
+   }
+    printf ("\n");
+
+   for(i = 0; i < t; i++){
+    printf("Digite o valor (%d) do segundo vetor: ", i + 1);
+    scanf("%d", &vet2[i]);
+   }
+
+	vet1[t] = malloc(t * sizeof(float*));
+	vet2[t] = malloc(t * sizeof(float*));
+	vet3[t] = malloc(t * sizeof(float*));
+
+
+soma(vet1[t], vet2[t], vet3[t], t);
+
+printf("\n");
+
+printf("A soma e': ");
+for(int i = 0; i < t; i++){
+    printf("%d ", *(vet3+i));
+}
+
+free(vet1);
+free(vet2);
+free(vet3);
+
+    return 0;
+}
