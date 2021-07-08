@@ -1,0 +1,69 @@
+16. Procure na internet mecanismos que possibilitem medir tempos de execução de rotinas
+computacionais. Geralmente, estas medidas são realizadas com o auxílio de funções em C que
+lêem a hora no sistema (sistemas Unix e Windows geralmente usam funções diferentes).
+Utilizando os conhecimentos que você obteve com sua pesquisa, meça os tempos de execução
+das implementações que você criou para os dois problemas de ordenação anteriores e compare
+os resultados obtidos.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+float compar(float *vetor, int n){
+    float aux;
+    for(int i = 0; i < n; i++){
+        for(int j = i; j < n; j++){
+            if(vetor[i] > vetor[j]){
+                aux = vetor[i];
+                vetor[i] = vetor[j];
+                vetor[j] = aux;
+            }
+        }
+    }
+    return *vetor;
+}
+
+int ver(const void * a, const void * b) {
+   return ( *(int*)a - *(int*)b );
+}
+
+float ordenaVet(float (*c)(float *, int), float *vetor){
+    
+	int n, min = -20000, max = 60000;
+	float *vetor2;
+	time_t t, t1;
+    printf("Qnt de valores: ");
+    scanf ("%i", &n);
+    
+    vetor = (float*)malloc(n*sizeof(float));
+    vetor2 = (float*) malloc(n*sizeof(float));
+    
+      for (int i = 0; i < n; i++){
+        vetor[i]= rand() % max + min;
+        vetor2[i] = vetor[i];
+    }
+
+    
+    t = clock();
+    compar(vetor, n);
+	t = (clock() - t);
+	 
+	t1 = clock();
+	qsort(vetor2, n, sizeof(float), ver);
+	t1 = (clock() - t1);
+	
+	printf("Tempo pelo codigo comum: %f \n", ((float)t)/CLOCKS_PER_SEC);
+    printf("Tempo pelo qsort: %f \n", ((float)t1)/CLOCKS_PER_SEC);
+    
+    free(vetor2);
+    return 0;
+}
+
+int main () {
+    float *vetor;
+    ordenaVet(compar, vetor);
+    
+    free(vetor);
+    return 0;
+} 
