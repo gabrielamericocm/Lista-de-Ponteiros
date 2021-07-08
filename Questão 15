@@ -1,0 +1,54 @@
+15. Utilize a ideia do ponteiro para função pela função qsort() para implementar sua própria função
+de ordenação. Para isso, sua função deverá receber, entre outros argumentos, um ponteiro para
+a função de comparação.
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+
+float compar(float *vetor, int n){
+    float aux;
+    for(int i = 0; i < n; i++){
+        for(int j = i; j < n; j++){
+            if(vetor[i] > vetor[j]){
+                aux = vetor[i];
+                vetor[i] = vetor[j];
+                vetor[j] = aux;
+            }
+        }
+    }
+    return *vetor;
+}
+
+float ordenaVet(float (*c)(float *, int), float *vetor){
+    
+	int n;
+    printf("Qnt de valores: ");
+    scanf ("%i", &n);
+
+    vetor = (float*) malloc(n*sizeof(float));
+    printf("\n");
+
+        for(int i = 0; i < n; i++){
+            printf("Valor: ");
+            scanf("%f", &vetor[i]);
+        }
+    c(vetor, n);
+  
+    printf("\nValores em ordem crescente: \n");
+    for(int i =0; i < n; i++){
+            printf("Endereco: %X Valor:%f \n", vetor+i, *(vetor+i));
+            printf("|");
+    }
+
+    return 0;
+}
+
+int main () {
+    float *vetor;
+    ordenaVet(compar, vetor);
+    
+    free(vetor);
+    return 0;
+} 
